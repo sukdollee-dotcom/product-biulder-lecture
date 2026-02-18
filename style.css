@@ -1,40 +1,106 @@
+:root {
+    --bg-color: #f0f0f0;
+    --text-color: #333;
+    --container-bg: #fff;
+    --button-bg: #4CAF50;
+    --button-text: #fff;
+    --number-bg: #ddd;
+    --number-text: #333;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    --container-bg: #2d2d2d;
+    --button-bg: #45a049;
+    --button-text: #fff;
+    --number-bg: #444;
+    --number-text: #fff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
 body {
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
     text-align: center;
+    padding: 2rem;
+    background-color: var(--container-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 1.2em;
+h1 {
+    margin-top: 0;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: 2px solid var(--button-bg);
+    color: var(--button-bg);
+    padding: 8px 16px;
+    border-radius: 20px;
     cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.theme-toggle:hover {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+}
+
+#generate {
+    padding: 12px 24px;
+    font-size: 1.1em;
+    cursor: pointer;
+    background-color: var(--button-bg);
+    color: var(--button-text);
     border: none;
-    border-radius: 5px;
-    margin-bottom: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    transition: transform 0.1s, opacity 0.2s;
+}
+
+#generate:active {
+    transform: scale(0.95);
+}
+
+#generate:hover {
+    opacity: 0.9;
 }
 
 .numbers-container {
     display: flex;
-    gap: 10px;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
 .number {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #ddd;
+    background-color: var(--number-bg);
+    color: var(--number-text);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
 }
